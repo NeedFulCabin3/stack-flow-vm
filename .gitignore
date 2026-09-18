@@ -1,0 +1,13 @@
+## Operating System files
+.DS_Store
+Thumbs.db
+
+IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+Web Server / Temporary Logs
+.log
+npm-debug.log
