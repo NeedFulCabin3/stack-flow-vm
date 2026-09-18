@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #16181d;
+  color: #d9dce1;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+header {
+  padding: 28px 32px 16px;
+  border-bottom: 1px solid #2a2d34;
+}
+
+header h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+header h1 span {
+  color: #6fb0ff;
+}
+
+header p {
+  margin: 0;
+  color: #8b90a0;
+  font-size: 14px;
+  max-width: 640px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+  padding: 20px 32px 40px;
+}
+
+.editor-pane {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.inspect-pane {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.console-pane {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.pane-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1d2026;
+  padding: 8px 14px;
+  border: 1px solid #2a2d34;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  font-size: 13px;
+  color: #8b90a0;
+  text-transform: lowercase;
+}
+
+#runBtn {
+  background: #3a7bd5;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#runBtn:hover {
+  background: #4c89dc;
+}
+
+#runBtn:active {
+  transform: translateY(1px);
+}
+
+textarea#source {
+  width: 100%;
+  height: 420px;
+  resize: vertical;
+  background: #101216;
+  color: #e4e6ea;
+  border: 1px solid #2a2d34;
+  border-radius: 0 0 8px 8px;
+  padding: 16px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  tab-size: 2;
+}
+
+.tabs {
+  display: flex;
+  background: #1d2026;
+  border: 1px solid #2a2d34;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #8b90a0;
+  padding: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-btn.active {
+  color: #e4e6ea;
+  border-bottom: 2px solid #3a7bd5;
+}
+
+.tab-view {
+  display: none;
+  margin: 0;
+  height: 220px;
+  overflow: auto;
+  background: #101216;
+  border: 1px solid #2a2d34;
+  border-radius: 0 0 8px 8px;
+  padding: 14px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 12.5px;
+  color: #a8d5a2;
+  white-space: pre-wrap;
+}
+
+.tab-view.active {
+  display: block;
+}
+
+#console {
+  margin: 0;
+  height: 155px;
+  overflow: auto;
+  background: #101216;
+  border: 1px solid #2a2d34;
+  border-radius: 0 0 8px 8px;
+  padding: 14px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  color: #e4e6ea;
+  white-space: pre-wrap;
+}
+
+#console .err {
+  color: #f27878;
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  .editor-pane, .inspect-pane, .console-pane {
+    grid-column: 1;
+  }
+  .editor-pane { grid-row: 1; }
+  .inspect-pane { grid-row: 2; }
+  .console-pane { grid-row: 3; }
+}
