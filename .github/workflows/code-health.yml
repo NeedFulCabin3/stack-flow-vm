@@ -1,0 +1,27 @@
+name: Code Health Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate JS Syntax
+        run: |
+          node -c lexer.js
+          node -c parser.js
+          node -c compiler.js
+          node -c vm.js
+          node -c script.js
