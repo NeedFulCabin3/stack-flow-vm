@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>little-lang // bytecode vm</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>little<span>lang</span></h1>
+    <p>a toy DSL that gets lexed, parsed, compiled to bytecode and run on a stack VM. all in the browser.</p>
+  </header>
+
+  <main>
+    <section class="editor-pane">
+      <div class="pane-head">
+        <span>source</span>
+        <button id="runBtn">Run ▶</button>
+      </div>
+      <textarea id="source" spellcheck="false">let x = 10;
+let y = 32;
+
+if (x < y) {
+  print "x is smaller";
+} else {
+  print "y is smaller or equal";
+}
+
+let total = 0;
+let i = 0;
+while (i < 5) {
+  total = total + i;
+  i = i + 1;
+}
+print total;</textarea>
+    </section>
+
+    <section class="inspect-pane">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="ast">AST</button>
+        <button class="tab-btn" data-tab="bytecode">Bytecode</button>
+      </div>
+      <pre id="ast" class="tab-view active"></pre>
+      <pre id="bytecode" class="tab-view"></pre>
+    </section>
+
+    <section class="console-pane">
+      <div class="pane-head"><span>output</span></div>
+      <pre id="console"></pre>
+    </section>
+  </main>
+
+  <script src="lexer.js"></script>
+  <script src="parser.js"></script>
+  <script src="compiler.js"></script>
+  <script src="vm.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
